@@ -26,9 +26,5 @@ public class App extends Application<Configuration> {
     @Override
     public void run(Configuration configuration, Environment environment) {
         environment.jersey().register(new TodoResource());
-
-        final FilterRegistration.Dynamic filterBuilder = environment.servlets().addFilter("static-filter", AssetsServingFilter.class);
-
-        filterBuilder.addMappingForServletNames(EnumSet.allOf(DispatcherType.class), true, ASSETS_SERVLET_NAME);
     }
 }
